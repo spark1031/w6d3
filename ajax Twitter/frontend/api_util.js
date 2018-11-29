@@ -21,7 +21,7 @@ const APIUtil = {
       url: `/users/search`,
       dataType: 'JSON',
       data: {
-        username: queryVal
+        query: queryVal
       }
     });
   }

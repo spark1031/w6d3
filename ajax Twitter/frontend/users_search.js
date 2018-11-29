@@ -5,11 +5,16 @@ class UsersSearch {
     this.$el = $el;
     this.$ul = $('.users');
     this.$input = $('.users-search-input');
+    $input.on("input", this.handleInput.bind(this));
   }
   
   handleInput() {
-    this.$el.on ('keypress', APIUtil.searchUsers(this.$input.val()), renderResults);
+    APIUtil.searchUsers(this.$input.val())
+      .then((res) => {
+        renderResults(res);
+      });
   }
+  
   
   renderResults(res) {
     // let users = this.$ul;
